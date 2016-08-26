@@ -24,12 +24,14 @@
         <processorPath useClasspath="true" />
         <module name="myspringweb" />
         <module name="mysqpringmvc" />
+        <module name="redis" />
         <module name="redis01" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myspringweb" target="1.5" />
       <module name="mysqpringmvc" target="1.5" />
+      <module name="redis" target="1.5" />
       <module name="redis01" target="1.5" />
     </bytecodeTargetLevel>
   </component>

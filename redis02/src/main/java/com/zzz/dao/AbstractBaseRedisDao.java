@@ -28,7 +28,5 @@ public abstract class AbstractBaseRedisDao<K, V> {
      */  
     protected RedisSerializer<String> getRedisSerializer() {
         return redisTemplate.getStringSerializer();  
-    }
-
-
-}
+    }  
+}  
