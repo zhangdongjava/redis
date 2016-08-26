@@ -6,10 +6,10 @@
 <body>
 <div id="ky" style="display: none">
 </div>
-<form action="login" target="hide_target">
+<form action="login" id="loginForm" target="hide_target">
     <input name="userName" placeholder="用户名">
     <input name="password" placeholder="密码">
-    <input type="submit" value="登录">
+    <input type="button" onclick="login()" value="登录">
 </form>
 <iframe id="hide_target"  style="display: none" name="hide_target"></iframe>
 
@@ -29,6 +29,11 @@
         if(slen==len){
             location.href="http://localhost:8083/get";
         }
+    }
+    function login(){
+         len = 0;
+         slen = 0;
+        document.getElementById("loginForm").submit();
     }
 </script>
 </html>
