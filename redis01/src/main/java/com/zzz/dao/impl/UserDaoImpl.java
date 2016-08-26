@@ -39,7 +39,6 @@ public class UserDaoImpl extends AbstractBaseRedisDao<String, User> implements U
         final String key = "RKT:JFT";
         Set<RedisZSetCommands.Tuple> result = redisTemplate.execute(new RedisCallback<Set<RedisZSetCommands.Tuple>>() {
             public Set<RedisZSetCommands.Tuple> doInRedis(RedisConnection connection) throws DataAccessException {
-                // TODO Auto-generated method stub
                 RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
                 byte[] keys = serializer.serialize(key);
                 Set<RedisZSetCommands.Tuple> values = connection.zRevRangeWithScores(keys, 0, -1);
