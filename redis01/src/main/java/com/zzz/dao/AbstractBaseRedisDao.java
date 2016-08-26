@@ -11,15 +11,15 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  */   
 public abstract class AbstractBaseRedisDao<K, V> {  
       
-    @Autowired
     protected RedisTemplate<K, V> redisTemplate;
-  
+
     /** 
      * 设置redisTemplate 
      * @param redisTemplate the redisTemplate to set 
-     */  
+     */
+    @Autowired
     public void setRedisTemplate(RedisTemplate<K, V> redisTemplate) {  
-        this.redisTemplate = redisTemplate;  
+        this.redisTemplate = redisTemplate;
     }  
       
     /** 

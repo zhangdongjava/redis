@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by dell_2 on 2016/8/26.
@@ -45,6 +47,27 @@ public class LoginController extends BaseController {
     @RequestMapping("set")
     @ResponseBody
     public Object set(String sessionId, HttpServletResponse response){
+        System.out.println("set sessionId :"+sessionId);
+        response.addCookie(new Cookie("sessionId",sessionId));
+        return buildParentCallback("1","setSession");
+    }
+
+    @RequestMapping("setMap")
+    @ResponseBody
+    public Object setMap(){
+        Map<String,String> map = new HashMap<String, String>();
+        map.put("a","1");
+        map.put("b","2");
+        map.put("c","3");
+        map.put("d","4");
+        loginRedis.setMap("map",map);
+        return loginRedis.getMap("map");
+    }
+
+
+    @RequestMapping("getMap")
+    @ResponseBody
+    public Object getMap(String sessionId, HttpServletResponse response){
         System.out.println("set sessionId :"+sessionId);
         response.addCookie(new Cookie("sessionId",sessionId));
         return buildParentCallback("1","setSession");
