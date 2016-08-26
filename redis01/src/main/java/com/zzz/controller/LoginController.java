@@ -36,8 +36,10 @@ public class LoginController extends BaseController {
                 sessionId = cookie.getValue();
             }
         }
-        System.out.println(sessionId);
-        return loginRedis.getStrByKey(sessionId);
+        if(sessionId== null)return "你没有登录!";
+        String  userInfo = loginRedis.getStrByKey(sessionId);
+        if(userInfo== null)return "你没有登录!";
+        return userInfo;
     }
 
     @RequestMapping("set")
